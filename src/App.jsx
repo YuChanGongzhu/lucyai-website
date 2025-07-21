@@ -2,10 +2,16 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import Header from "./component/Header/Header";
 import FullScreenSection from "./component/FullScreenSection/FullScreeenSection";
 import ProductGrid from "./component/ProductGrid/ProductGrid";
-import FeatureGrid from "./component/FeaturedGord/FeatureGrid";
 import "./App.css";
 import backgroundImg from "./assets/bg.svg";
+import CardItemBg from "./assets/CardBg.png";
 import Button from "./component/Button/Button";
+import ThirdCard from "./component/ThirdCard/ThirdCard";
+import FourthCard from "./component/FourthCard/FourthCard";
+import FifthCard from "./component/FifthCard/FifthCard";
+import ChatImage from "./component/ChatImage/index";
+import LearnAbout from "./component/LearnAbout/LearnAbout";
+import customer from "./assets/customer.png";
 function App() {
   const sectionsRef = useRef([]);
   const ticking = useRef(false);
@@ -42,19 +48,12 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // 滚动到指定区域
-  const scrollToSection = useCallback((index) => {
-    if (sectionsRef.current[index]) {
-      sectionsRef.current[index].scrollIntoView({ behavior: "smooth" });
-    }
-  }, []);
-
   return (
     <div className="app">
       <Header />
 
       <main className="main-content">
-        <FullScreenSection backgroundColor="#D6DDED" className="hero-section">
+        <FullScreenSection backgroundColor="#fafafe" className="hero-section">
           <img src={backgroundImg} alt="background" className="background-img" />
 
           <div className="first-section">
@@ -70,27 +69,78 @@ function App() {
             </Button>
           </div>
         </FullScreenSection>
-
-        <FullScreenSection backgroundColor="#fff">
+        <FullScreenSection backgroundColor="#fafafe">
           <div className="second-section">
-            <h2>LucyAI能为你做什么</h2>
+            <div className="second-section-title">LucyAI能为你做什么</div>
             <ProductGrid />
           </div>
         </FullScreenSection>
-
-        <FullScreenSection backgroundColor="#f9f9f9">
-          <div className="core-technology">
-            <h2>核心技术</h2>
-            <FeatureGrid />
+        <FullScreenSection backgroundColor="#fafafe">
+          <div className="thridCard-section">
+            <div className="thridCard-section-first">
+              <div className="thridCard-section-first-Topetext">为什么</div>
+              <div className="thridCard-section-first-Topetext">选择LuycAI</div>
+              <div className="thridCard-section-first-Bottomtext">
+                多模型驱动 × 拟人交互 × 全链路闭环构建难
+              </div>
+              <text className="thridCard-section-first-Bottomtext">以复制的智能营销增长系统</text>
+            </div>
+            <ThirdCard />
+            <div className="thridCard-section-second">
+              <div className="thridCard-section-second-text">立即与我们联系</div>
+              <div className="thridCard-section-second-text">预约演示吧</div>
+              <Button
+                width="100%"
+                height="3.75rem"
+                variant="primary"
+                style={{ fontSize: "1.25rem", borderRadius: "12px", marginTop: "1.9375rem" }}
+              >
+                立即联系
+              </Button>
+            </div>
           </div>
         </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          {/* <img src={CardItemBg} alt="CardItemBg" className="CardItemBg" /> */}
 
-        <FullScreenSection backgroundColor="#fff">
-          <h2>加入小米社区</h2>
-          <div className="community-content">
-            <div className="community-placeholder">社区互动区域</div>
-            <p>与数百万米粉一起探索科技的乐趣，获取最新产品资讯，参与独家活动。</p>
+          <div className="fourthCard-secion">
+            <div className="fourthCard-secion-title">成效立见·数据说话</div>
+            <FourthCard />
           </div>
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <FifthCard order={1} />
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <FifthCard order={2} />
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <FifthCard order={3} />
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <FifthCard order={4} />
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <FifthCard order={5} />
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <div className="fourthCard-secion">
+            <div className="fourthCard-secion-title">AI客服聊天实例</div>
+            <ChatImage />
+          </div>
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <div className="fourthCard-secion">
+            <div className="fourthCard-secion-title" style={{ textAlign: "left" }}>
+              合作客户
+            </div>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <img src={customer} alt="customer" style={{ width: "100%", height: "100%" }} />
+            </div>
+          </div>
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fff">
+          <LearnAbout />
         </FullScreenSection>
       </main>
     </div>

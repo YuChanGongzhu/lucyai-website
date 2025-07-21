@@ -7,7 +7,17 @@
 .main-content {
   /* margin-top: 60px; */
 }
+.CardItemBg{
+  width:49.9375rem ;
+  height: 52.5625rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border: 1px solid red;
 
+}
 .hero-section {
   position: relative;
   overflow: hidden;
@@ -28,6 +38,7 @@
   text-align: center;
   z-index: 100;
   gap: 1.5rem;
+  box-sizing: border-box;
 }
 
 .main-title{
@@ -58,8 +69,70 @@
   max-width: 650px;
 }
 .second-section{
+  /* border: 1px solid red; */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.second-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 3rem;
+  padding-left: 1rem;
+  text-align: left;
+}
+.thridCard-section{
+  /* border: 1px solid red; */
   width: 100%;
-  border: 1px solid red;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 2.5rem;
+  column-gap: 2.5rem;
+  box-sizing: border-box;
+}
+.thridCard-section-first{
+  /* border: 1px solid red; */
+  grid-column: 1/2;
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+.thridCard-section-first-Topetext{
+  font-size: 3rem;
+  font-weight: 700;
+  color: #252432;
+  text-align: left;
+}
+.thridCard-section-first-Bottomtext{
+  font-size: .875rem;
+  color: #8987A1;
+  text-align: left;
+}
+.thridCard-section-second{
+  /* border: 1px solid blue; */
+  padding: 2.3125rem 1.625rem;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  background-color: #ffffff;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.thridCard-section-second-text{
+  font-size: 2.1875rem;
+  font-weight: 700;
+  color: #2d3748;
+  text-align: left;
 }
 .scroll-indicator {
   width: 40px;
@@ -110,6 +183,25 @@
   object-position: center;
 }
 
+/* FourthCard Section 基础样式 */
+
+.fourthCard-secion{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.fourthCard-secion-title{
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2D2D2D;
+  margin-bottom: 2rem;
+  text-align: center;
+}
 /* 响应式设计 */
 @media (max-width: 768px) {
   .first-section {
@@ -129,6 +221,12 @@
     font-size: 1rem;
     margin: 0.5rem 0 1.5rem 0;
   }
+  
+  /* 响应式按钮 */
+  .first-section .custom-button {
+    width: 16rem !important;
+    height: 4rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -147,4 +245,143 @@
   .description {
     font-size: 0.9rem;
   }
+  
+  /* 小屏幕按钮 */
+  .first-section .custom-button {
+    width: 12rem !important;
+    height: 3.5rem !important;
+    font-size: 0.9rem !important;
+  }
 }
+
+/* Second Section 样式 */
+.second-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.second-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .second-section {
+    padding: 1rem;
+  }
+  
+  .second-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* thridCard-section 响应式设计 */
+@media (max-width: 1200px) {
+  .thridCard-section {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 1.5rem;
+    row-gap: 2rem;
+    column-gap: 2rem;
+  }
+  
+  .thridCard-section-first-Topetext {
+    font-size: 2.5rem;
+  }
+  
+  .thridCard-section-second-text {
+    font-size: 2rem;
+  }
+  
+  .fourthCard-secion-title{
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .thridCard-section {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    row-gap: 1.5rem;
+  }
+  
+  .thridCard-section-first {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: center;
+  }
+  
+  .thridCard-section-first-Topetext {
+    font-size: 2rem;
+  }
+  
+  .thridCard-section-first-Bottomtext {
+    font-size: 0.8rem;
+  }
+  
+  .thridCard-section-second {
+    grid-column: 1;
+    grid-row: auto;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .thridCard-section-second-text {
+    font-size: 1.5rem;
+  }
+  
+  .CardItemBg {
+    width: 90vw;
+    height: auto;
+    max-width: 400px;
+    max-height: 500px;
+  }
+  
+  .fourthCard-secion-title{
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .thridCard-section {
+    padding: 0.5rem;
+    row-gap: 1rem;
+  }
+  
+  .thridCard-section-first-Topetext {
+    font-size: 1.5rem;
+  }
+  
+  .thridCard-section-first-Bottomtext {
+    font-size: 0.75rem;
+  }
+  
+  .thridCard-section-second {
+    padding: 1rem 0.5rem;
+  }
+  
+  .thridCard-section-second-text {
+    font-size: 1.2rem;
+  }
+  
+  .CardItemBg {
+    width: 95vw;
+    max-width: 300px;
+    max-height: 400px;
+  }
+  
+  .fourthCard-secion-title{
+    font-size: 1.5rem;
+    margin-bottom:1rem;
+  }
+}
+/* FourthCard Section 基础样式 */

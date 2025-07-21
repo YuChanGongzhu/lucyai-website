@@ -37,7 +37,7 @@ const Button = ({
       disabled={disabled}
       {...props}
     >
-      <span className="custom-button__text">{children}</span>
+      <span className="custom-button__text ">{children}</span>
     </button>
   );
 };

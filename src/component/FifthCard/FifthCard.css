@@ -1,0 +1,335 @@
+/* FifthCard 容器样式 */
+.fifth-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* 单个卡片包装器 */
+.card-item-wrapper {
+  display: grid;
+  grid-template-columns:repeat(5,1fr);
+  gap: 2rem;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  min-height: 400px;
+}
+
+/* 左侧内容区域 */
+.card-content-section {
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: flex-start; */
+  gap: 1.5rem;
+  padding-right: 1rem;
+}
+
+/* 卡片头部 */
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #8389FC;
+  font-weight: 500;
+}
+
+.card-subtitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+.card-subtitle img{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.card-subtitle p{
+  font-size: 1.25rem;
+  font-weight: 500;
+  /* color: #8389FC; */
+}
+/* 卡片描述 */
+.card-description {
+  font-size: 1.0625rem;
+  color: #000000;
+}
+
+/* 统计数据网格 */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 1rem;
+  /* margin-top: auto; */
+}
+
+
+.fifth-card-stat-item {
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.fifth-card-stat-item1{
+  grid-column: 1/3;
+}
+.fifth-card-stat-item-id3{
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.fifth-card-stat-value {
+  font-size: 3.375rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.fifth-card-stat-label {
+  font-size: 1.25rem;
+  color: #000000;
+}
+
+/* 右侧图片展示区域 */
+.card-images-section {
+  height: 43.1875rem;
+  grid-column: 3 / 6;
+  position: relative;
+  overflow: hidden;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem,1fr));
+
+  gap: 0.5rem;
+  height: 100%;
+  min-height: 300px;
+}
+
+/* 图片项目 */
+.image-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f7fafc;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.normal-image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 倾斜 */
+.card-images-section-incline {
+  height: 43.1875rem;
+  grid-column: 3 / 6;
+  position: relative;
+  overflow: hidden;
+}
+.images-grid-incline {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.5rem;
+  height: 100%;
+  min-height: 300px;
+  transform: rotate(15deg);
+
+}
+.image-item-incline {
+  position: relative;
+  border-radius: 8px;
+
+  height: 13.5rem;
+  overflow: hidden;
+
+}
+
+.incline-image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+}
+.image-incline-5{
+  /* border: 1px solid red; */
+  transform: scale(1.1,1.1);
+  z-index: 1;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+/* 倾斜样式2 */
+.card-images-section-incline2 {
+  height: 43.1875rem;
+  grid-column: 3 / 6;
+  position: relative;
+  overflow: hidden;
+}
+.images-grid-incline2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr); /* 增加到4行，支持第3、4张图片跨行 */
+  gap: 0.5rem;
+  height: 100%;
+  min-height: 300px;
+  transform: rotate(15deg);
+}
+.image-item-incline2 {
+  position: relative;
+  border-radius: 8px;
+  /* height: 13.5rem; */
+  overflow: hidden;
+}
+
+.incline-image2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+}
+
+.image-incline2-3{
+  grid-row: 2/4; /* 第3张图片占第2-3行 */
+  height: auto;
+}
+
+.image-incline2-4{
+  grid-row: 2/4; /* 第4张图片占第3-4行 */
+  height: auto;
+}
+
+.image-incline2-3{
+  /* border: 1px solid red; */
+  transform: scale(1.1,1.1);
+  z-index: 1;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .fifth-card-container {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  
+  .card-item-wrapper {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .fifth-card-container {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .card-item-wrapper {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .card-content-section {
+    padding-right: 0;
+    order: 2;
+  }
+  
+  .card-images-section {
+    order: 1;
+    min-height: 200px;
+  }
+  
+  .images-grid {
+    min-height: 200px;
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+  }
+  
+  .card-description {
+    font-size: 0.8rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .fifth-card-stat-item {
+    padding: 0.75rem 0.5rem;
+  }
+  .fifth-card-stat-value {
+    font-size: 1rem;
+  }
+  
+  .fifth-card-stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fifth-card-container {
+    padding: 0.5rem;
+  }
+  
+  .card-item-wrapper {
+    padding: 0.75rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+  
+  .card-description {
+    font-size: 0.75rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .images-grid {
+    min-height: 150px;
+    gap: 0.25rem;
+  }
+} 
