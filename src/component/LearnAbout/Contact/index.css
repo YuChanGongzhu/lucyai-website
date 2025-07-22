@@ -1,0 +1,186 @@
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ffffff, #f6f9ff);
+  border-radius: 24px;
+  border: 2px solid #4285f4;
+  box-shadow: 0 8px 32px rgba(66, 133, 244, 0.1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-header {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.9375rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-icon {
+  width: 2.5rem;
+  height: 1.9688rem;
+}
+
+.logo-text {
+  width: 7.375rem;
+  height: 1.875rem;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #8987a1;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.contact-description {
+  font-size: 14px;
+  color: #8987a1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-right {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #8987a1;
+  margin-bottom: 1rem;
+}
+
+.contact-item {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.contact-label {
+  color: #8987a1;
+}
+
+.contact-value {
+  color: #8987a1;
+  font-weight: 500;
+}
+
+.contact-qrcode {
+  flex-shrink: 0;
+}
+.wechat-qrcode {
+  width: 9.375rem;
+  height: 9.375rem;
+}
+
+/* 平板响应式 */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 30px 16px;
+    margin: 0 16px;
+    border-radius: 16px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .contact-left {
+    padding-right: 0;
+  }
+
+  .contact-title {
+    font-size: 18px;
+  }
+
+  .contact-right {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* 手机响应式 */
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 20px 12px;
+    margin: 0 12px;
+    border-radius: 12px;
+  }
+
+  .contact-header {
+    margin-bottom: 20px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .logo-icon {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .contact-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .contact-description {
+    font-size: 13px;
+  }
+
+  .contact-info-title {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .contact-item {
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .contact-right {
+    gap: 16px;
+  }
+}
+
+/* 超大屏幕 */
+@media (min-width: 1400px) {
+  .contact-container {
+    max-width: 1400px;
+    padding: 50px 40px;
+  }
+
+  .contact-content {
+    gap: 60px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .contact-description {
+    font-size: 16px;
+  }
+}

@@ -11,6 +11,7 @@ import FourthCard from "./component/FourthCard/FourthCard";
 import FifthCard from "./component/FifthCard/FifthCard";
 import ChatImage from "./component/ChatImage/index";
 import LearnAbout from "./component/LearnAbout/LearnAbout";
+import Contact from "./component/LearnAbout/Contact/index";
 import customer from "./assets/customer.png";
 function App() {
   const sectionsRef = useRef([]);
@@ -139,8 +140,12 @@ function App() {
             </div>
           </div>
         </FullScreenSection>
-        <FullScreenSection backgroundColor="#fff">
+        <FullScreenSection backgroundColor="#fafafe">
           <LearnAbout />
+        </FullScreenSection>
+        <FullScreenSection backgroundColor="#fafafe">
+          <img src={backgroundImg} alt="background" className="background-img" />
+          <Contact />
         </FullScreenSection>
       </main>
     </div>
