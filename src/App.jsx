@@ -4,7 +4,6 @@ import FullScreenSection from "./component/FullScreenSection/FullScreeenSection"
 import ProductGrid from "./component/ProductGrid/ProductGrid";
 import "./App.css";
 import backgroundImg from "./assets/bg.svg";
-import CardItemBg from "./assets/CardBg.png";
 import Button from "./component/Button/Button";
 import ThirdCard from "./component/ThirdCard/ThirdCard";
 import FourthCard from "./component/FourthCard/FourthCard";
@@ -13,41 +12,89 @@ import ChatImage from "./component/ChatImage/index";
 import LearnAbout from "./component/LearnAbout/LearnAbout";
 import Contact from "./component/LearnAbout/Contact/index";
 import customer from "./assets/customer.png";
+
 function App() {
   const sectionsRef = useRef([]);
   const ticking = useRef(false);
+  const lastScrollY = useRef(0);
 
-  // 节流滚动事件处理
+  // 添加缺失的状态声明
+  const [activeSection, setActiveSection] = useState(0);
+
+  // 优化的节流滚动事件处理
   const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY;
+
+    // 如果滚动距离很小，跳过处理（减少不必要的计算）
+    if (Math.abs(currentScrollY - lastScrollY.current) < 5) {
+      return;
+    }
+
     if (!ticking.current) {
       requestAnimationFrame(() => {
         let currentSection = 0;
         const windowHeight = window.innerHeight;
+        const scrollPosition = window.scrollY;
 
+        // 使用缓存的section引用，避免重复查询DOM
         sectionsRef.current.forEach((section, index) => {
           if (section) {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < windowHeight / 2) {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = rect.top + scrollPosition;
+            const sectionBottom = sectionTop + rect.height;
+
+            // 更精确的section激活判断
+            if (
+              scrollPosition >= sectionTop - windowHeight / 3 &&
+              scrollPosition < sectionBottom - windowHeight / 3
+            ) {
               currentSection = index;
             }
           }
         });
 
         setActiveSection(currentSection);
+        lastScrollY.current = currentScrollY;
         ticking.current = false;
       });
       ticking.current = true;
     }
   }, []);
 
+  // 优化的useEffect，添加防抖和更好的清理
   useEffect(() => {
-    // 缓存section元素
-    sectionsRef.current = Array.from(document.querySelectorAll(".full-screen-section"));
+    // 延迟初始化，确保DOM完全加载
+    const initializeSections = () => {
+      sectionsRef.current = Array.from(document.querySelectorAll(".full-screen-section"));
+    };
 
-    // 使用passive监听器提升性能
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    // 使用setTimeout确保DOM渲染完成
+    const timeoutId = setTimeout(initializeSections, 100);
+
+    // 使用passive监听器提升性能，并添加capture选项
+    const scrollOptions = { passive: true, capture: false };
+
+    window.addEventListener("scroll", handleScroll, scrollOptions);
+
+    // 清理函数
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("scroll", handleScroll, scrollOptions);
+      // 重置refs
+      ticking.current = false;
+    };
   }, [handleScroll]);
+
+  // 添加窗口大小变化处理
+  useEffect(() => {
+    const handleResize = () => {
+      // 窗口大小变化时重新计算section位置
+      sectionsRef.current = Array.from(document.querySelectorAll(".full-screen-section"));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="app">
@@ -84,7 +131,7 @@ function App() {
               <div className="thridCard-section-first-Bottomtext">
                 多模型驱动 × 拟人交互 × 全链路闭环构建难
               </div>
-              <text className="thridCard-section-first-Bottomtext">以复制的智能营销增长系统</text>
+              <span className="thridCard-section-first-Bottomtext">以复制的智能营销增长系统</span>
             </div>
             <ThirdCard />
             <div className="thridCard-section-second">
@@ -102,8 +149,6 @@ function App() {
           </div>
         </FullScreenSection>
         <FullScreenSection backgroundColor="#fafafe">
-          {/* <img src={CardItemBg} alt="CardItemBg" className="CardItemBg" /> */}
-
           <div className="fourthCard-secion">
             <div className="fourthCard-secion-title">成效立见·数据说话</div>
             <FourthCard />
