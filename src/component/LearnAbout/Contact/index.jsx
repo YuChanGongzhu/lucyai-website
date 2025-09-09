@@ -28,7 +28,7 @@ const Contact = () => {
             </div>
             <div className="contact-item">
               <span className="contact-label">手机：</span>
-              <span className="contact-value">13590115400（微信同号）</span>
+              <span className="contact-value">13928871826（微信同号）</span>
             </div>
           </div>
 
