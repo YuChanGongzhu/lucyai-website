@@ -1,0 +1,178 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 100;
+  will-change: transform;
+}
+.logoBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logoIcon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.logoFont {
+  width: 7.375rem;
+  height: 3.6875rem;
+  object-fit: contain;
+}
+.headerButton {
+  width: 8.25rem;
+  height: 3rem;
+  border-radius: 1rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  background: linear-gradient(90deg, #8389fc, #d477e1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(131, 137, 252, 0.2);
+}
+.headerButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(131, 137, 252, 0.4);
+  background: linear-gradient(90deg, #9da3fd, #e188e8);
+}
+.headerButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(131, 137, 252, 0.2);
+}
+.headerButton::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  opacity: 0;
+}
+.headerButton:hover::before {
+  width: 300%;
+  height: 300%;
+  opacity: 1;
+}
+.headerButton:active::before {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+.headerButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(131, 137, 252, 0.3);
+}
+@media (max-width: 1024px) {
+  .headerButton {
+    width: 7rem;
+    height: 2.5rem;
+    font-size: 0.9rem;
+  }
+  .logoFont {
+    width: 6rem;
+    height: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding: 0 15px;
+  }
+  .headerButton {
+    width: 6rem;
+    height: 2.2rem;
+    font-size: 0.8rem;
+  }
+  .logoFont {
+    width: 5rem;
+    height: 2.5rem;
+  }
+}
+.headerButton {
+  will-change: transform, box-shadow;
+}
+@media (prefers-reduced-motion: reduce) {
+  .headerButton,
+  .headerButton::before {
+    transition: none;
+  }
+}
+.headerButton {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from {
+    box-shadow: 0 2px 8px rgba(131, 137, 252, 0.2);
+  }
+  to {
+    box-shadow: 0 2px 8px rgba(131, 137, 252, 0.4), 0 0 20px rgba(131, 137, 252, 0.2);
+  }
+}
+.headerButton {
+  background: linear-gradient(90deg, #8389fc, #d477e1, #8389fc);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.headerButton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem;
+  border: 2px solid rgba(131, 137, 252, 0.6);
+  animation: pulse 2s infinite;
+  opacity: 0;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+.headerButton span {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+.headerButton:hover span {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
